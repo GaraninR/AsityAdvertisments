@@ -1,0 +1,43 @@
+﻿body {
+    font-family: sans-serif;
+}
+
+.sitemenu {
+    height: 62px;
+    background: #ebebeb;
+    margin-top: 42px;
+    vertical-align: middle;
+    margin-left: 60px;
+}
+
+.menu_element {
+    text-transform: uppercase;
+    margin-left: 45px;
+    display: inline-block;
+    font-family: sans-serif;
+    color: #727272;
+    margin-top: 20px;
+}
+
+.menu_elements {
+    margin-left: 55px;    
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+h1, h2 {
+    font-family: sans-serif;
+    color: #727272;
+}
+
+.header {
+    margin-left: 64px;
+    margin-top: 70px
+}
+
+.subheader {
+    margin-left: 64px
+}
