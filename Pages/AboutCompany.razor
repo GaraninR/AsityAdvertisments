@@ -1,0 +1,49 @@
+﻿@page "/about"
+
+<div class="workblock">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <h1>О компании</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <p>Наша компания на рынке уже 26 лет</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <h2>Свяжитесь с нами</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            <form>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="email" required />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="content" class="col-sm-3 col-form-label">Текст сообщения</label>
+                    <div class="col-sm-9">
+                        <textarea type="textarea" class="form-control" id="content" placeholder="Напишите текст сообщения" required></textarea>
+                    </div>
+                </div>            
+
+                <button class="btn btn-primary" type="submit">Отправить</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

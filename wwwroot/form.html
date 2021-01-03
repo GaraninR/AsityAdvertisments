@@ -1,0 +1,126 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Asity Advertisment</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="img/logo.png">
+            </div>               
+            <div class="col-10">
+                <div class="sitemenu">
+                    <div class="menu_elements">
+                        <ul class="nav">
+                            <li class="nav-item menu_element">
+                                <a href="#">Главная</a>
+                            </li>
+                            <li class="nav-item menu_element">
+                                <a href="#">Объявления</a>
+                            </li>
+                            <li class="nav-item menu_element">
+                                <a href="#">Добавить объявление</a>
+                            </li>
+                            <li class="nav-item menu_element">
+                                <a href="#">О компании</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <h2>Добавить объявление</h2>
+            </div>
+        </div>
+        <div class="workblock">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-6">
+                <form>
+                    <div class="form-group row">
+                      <label for="id" class="col-sm-2 col-form-label">ID</label>
+                      <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="id" value="1">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="fnlnmn" class="col-sm-2 col-form-label">ФИО</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="fnlnmn" required>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="phone" class="col-sm-2 col-form-label">Телефон</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="phone" required>
+                        </div>
+                      </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                        <input type="text" class="form-control" id="email" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="content" class="col-sm-2 col-form-label">Текст объявления</label>
+                        <div class="col-sm-10">
+                            <textarea type="textarea" class="form-control" id="content" placeholder="Напишите текст объявления" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="age" class="col-sm-2 col-form-label">Возраст</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="age" placeholder="18" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="price-usd" class="col-sm-2 col-form-label">Цена USD</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="price-usd" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="rate" class="col-sm-2 col-form-label">Курс</label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly class="form-control-plaintext" id="rate" value="2.6">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="price-byn" class="col-sm-2 col-form-label">Цена в BYN</label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly class="form-control-plaintext" id="price-byn" value="">
+                        </div>
+                      </div>
+
+                      <button class="btn btn-primary" type="submit">Отправить</button>
+
+                  </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿@page "/advlist"
+
+<div class="workblock">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <h2>Список объявлений</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">FLP</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Advertisment Text</th>
+                        <th scope="col">Price USD</th>
+                        <th scope="col">Course</th>
+                        <th scope="col">Price BYN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in advs)
+                    {
+                    <tr>
+                        <th scope="row">@x.id</th>
+                        <td>@(x.lastName + " " + x.firstName + " " + x.patronimic)</td>
+                        <td>@x.phoneNumber</td>
+                        <td>@x.email</td>
+                        <td>@x.age</td>
+                        <td>@x.advText</td>
+                        <td>@x.priceUSD</td>
+                        <td>@x.courseOfUSD</td>
+                        <td>@x.priceBYN</td>
+                    </tr>
+                    }                    
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
+@code {
+
+    public List<Advertisment> advs;
+
+    protected override void OnInitialized()
+    {
+
+        advs = new List<Advertisment>();
+
+        Advertisment adv1 = new Advertisment(1, "Jhon", "Golt", "Petrovich", "+48256698745", "kuklovod@wp.pl", 38, "Adv Text", 30.0f, 3.0f, 90.0f);
+        Advertisment adv2 = new Advertisment(2, "Jhon", "Golt", "Petrovich", "+48256698745", "kuklovod@wp.pl", 38, "Second Adv Text", 30.0f, 3.0f, 90.0f);
+        Advertisment adv3 = new Advertisment(3, "Jhon", "Golt", "Petrovich", "+48256698745", "kuklovod@wp.pl", 38, "Third Adv Text", 30.0f, 3.0f, 90.0f);
+
+        advs.Add(adv1);
+        advs.Add(adv2);
+        advs.Add(adv3);
+    }
+
+}

@@ -41,3 +41,8 @@ h1, h2 {
 .subheader {
     margin-left: 64px
 }
+
+.workblock {
+    margin-left: 72px;
+    margin-top: -48px;
+}

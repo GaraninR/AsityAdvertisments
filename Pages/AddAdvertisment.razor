@@ -1,0 +1,84 @@
+﻿@page "/addadv"
+
+    <div class="workblock">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <h2>Добавить объявление</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-6">
+                <form>
+                    <div class="form-group row">
+                        <label for="id" class="col-sm-3 col-form-label">ID</label>
+                        <div class="col-sm-9">
+                            <input type="text" readonly class="form-control-plaintext" id="id" value="1">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="fnlnmn" class="col-sm-3 col-form-label">ФИО</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="fnlnmn" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="phone" class="col-sm-3 col-form-label">Телефон</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="phone" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="email" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="content" class="col-sm-3 col-form-label">Текст объявления</label>
+                        <div class="col-sm-9">
+                            <textarea type="textarea" class="form-control" id="content" placeholder="Напишите текст объявления" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="age" class="col-sm-3 col-form-label">Возраст</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="age" placeholder="18" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="price-usd" class="col-sm-3 col-form-label">Цена USD</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="price-usd" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="rate" class="col-sm-3 col-form-label">Курс</label>
+                        <div class="col-sm-9">
+                            <input type="text" readonly class="form-control-plaintext" id="rate" value="2.6">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="price-byn" class="col-sm-3 col-form-label">Цена в BYN</label>
+                        <div class="col-sm-9">
+                            <input type="text" readonly class="form-control-plaintext" id="price-byn" value="">
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Отправить</button>
+
+                </form>
+            </div>
+        </div>
+       </div>
+
+
+        @code {
+
+        }
