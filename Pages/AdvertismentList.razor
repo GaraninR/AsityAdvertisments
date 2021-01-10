@@ -1,5 +1,8 @@
 ﻿@page "/advlist"
 
+@using Newtonsoft.Json
+@inject HttpClient Http
+
 <div class="workblock">
     <div class="row">
         <div class="col-2"></div>
@@ -28,18 +31,18 @@
                 <tbody>
                     @foreach (var x in advs)
                     {
-                    <tr>
-                        <th scope="row">@x.id</th>
-                        <td>@(x.lastName + " " + x.firstName + " " + x.patronimic)</td>
-                        <td>@x.phoneNumber</td>
-                        <td>@x.email</td>
-                        <td>@x.age</td>
-                        <td>@x.advText</td>
-                        <td>@x.priceUSD</td>
-                        <td>@x.courseOfUSD</td>
-                        <td>@x.priceBYN</td>
-                    </tr>
-                    }                    
+                        <tr>
+                            <th scope="row">@x.id</th>
+                            <td>@(x.lastName + " " + x.firstName + " " + x.patronimic)</td>
+                            <td>@x.phoneNumber</td>
+                            <td>@x.email</td>
+                            <td>@x.age</td>
+                            <td>@x.advText</td>
+                            <td>@x.priceUSD</td>
+                            <td>@x.courseOfUSD</td>
+                            <td>@x.priceBYN</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
 
@@ -52,18 +55,25 @@
 
     public List<Advertisment> advs;
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
 
         advs = new List<Advertisment>();
 
-        Advertisment adv1 = new Advertisment(1, "Jhon", "Golt", "Petrovich", "+48256698745", "kuklovod@wp.pl", 38, "Adv Text", 30.0f, 3.0f, 90.0f);
+        /*Advertisment adv1 = new Advertisment(1, "Jhon", "Golt", "Petrovich", "+48256698745", "kuklovod@wp.pl", 38, "Adv Text", 30.0f, 3.0f, 90.0f);
         Advertisment adv2 = new Advertisment(2, "Jhon", "Golt", "Petrovich", "+48256698745", "kuklovod@wp.pl", 38, "Second Adv Text", 30.0f, 3.0f, 90.0f);
         Advertisment adv3 = new Advertisment(3, "Jhon", "Golt", "Petrovich", "+48256698745", "kuklovod@wp.pl", 38, "Third Adv Text", 30.0f, 3.0f, 90.0f);
 
         advs.Add(adv1);
         advs.Add(adv2);
-        advs.Add(adv3);
+        advs.Add(adv3);*/
+
+
+        advs = new List<Advertisment>();
+        String jsonString = await Http.GetStringAsync("http://localhost:10000/api/Advertisments/GetList");
+
+        Console.WriteLine(jsonString);
+        advs = JsonConvert.DeserializeObject<List<Advertisment>>(jsonString);
     }
 
 }

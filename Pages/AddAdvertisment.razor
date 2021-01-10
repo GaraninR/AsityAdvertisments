@@ -1,4 +1,7 @@
 ﻿@page "/addadv"
+@using Newtonsoft.Json 
+@inject HttpClient Http
+@inject NavigationManager NavManager
 
     <div class="workblock">
         <div class="row">
@@ -14,64 +17,64 @@
                     <div class="form-group row">
                         <label for="id" class="col-sm-3 col-form-label">ID</label>
                         <div class="col-sm-9">
-                            <input type="text" readonly class="form-control-plaintext" id="id" value="1">
+                            <input @bind="adv.id" type="text" readonly class="form-control-plaintext" id="id">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="fnlnmn" class="col-sm-3 col-form-label">ФИО</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="fnlnmn" required>
+                            <input @bind="fnlnp" type="text" class="form-control" id="fnlnmn" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="phone" class="col-sm-3 col-form-label">Телефон</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="phone" required>
+                            <input @bind="adv.phoneNumber" type="text" class="form-control" id="phone" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="email" class="col-sm-3 col-form-label">Email</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="email" required />
+                            <input @bind="adv.email" type="text" class="form-control" id="email" required />
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="content" class="col-sm-3 col-form-label">Текст объявления</label>
                         <div class="col-sm-9">
-                            <textarea type="textarea" class="form-control" id="content" placeholder="Напишите текст объявления" required></textarea>
+                            <textarea @bind="adv.advText" type="textarea" class="form-control" id="content" placeholder="Напишите текст объявления" required></textarea>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="age" class="col-sm-3 col-form-label">Возраст</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="age" placeholder="18" required />
+                            <input @bind="adv.age" type="text" class="form-control" id="age" placeholder="18" required />
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="price-usd" class="col-sm-3 col-form-label">Цена USD</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="price-usd" required />
+                            <input @bind="adv.priceUSD" type="text" class="form-control" id="price-usd" required />
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="rate" class="col-sm-3 col-form-label">Курс</label>
                         <div class="col-sm-9">
-                            <input type="text" readonly class="form-control-plaintext" id="rate" value="2.6">
+                            <input @bind="course.Course" type="text" readonly class="form-control-plaintext" id="rate">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="price-byn" class="col-sm-3 col-form-label">Цена в BYN</label>
                         <div class="col-sm-9">
-                            <input type="text" readonly class="form-control-plaintext" id="price-byn" value="">
+                            <input type="text" readonly class="form-control-plaintext" id="price-byn" value="@getPriceBYN()">
                         </div>
                     </div>
 
-                    <button class="btn btn-primary" type="submit">Отправить</button>
+                    <button @onclick="submitForm" class="btn btn-primary" type="submit">Отправить</button>
 
                 </form>
             </div>
@@ -79,6 +82,47 @@
        </div>
 
 
-        @code {
+@code {
 
-        }
+    CurrencyCourse course;
+    Advertisment adv;
+    string fnlnp;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        course = new CurrencyCourse();
+
+        var response = await Http.GetStringAsync("http://127.0.0.1:3000/getcourse");
+        course = JsonConvert.DeserializeObject<CurrencyCourse>(response);
+        adv.courseOfUSD = course.Course;
+
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        adv = new Advertisment();
+
+    }
+
+    private float getPriceBYN()
+    {
+        adv.priceBYN = adv.priceUSD * adv.courseOfUSD;
+        return adv.priceBYN;
+    }
+
+    protected async Task submitForm()
+    {
+        string[] words = fnlnp.Split(' ');
+
+        adv.firstName = words[0];
+        adv.lastName = words[1];
+        adv.patronimic = words[2];
+
+        await Http.PostAsJsonAsync<Advertisment>("http://localhost:10000/api/Advertisments/addAdvertisment", adv);
+        NavManager.NavigateTo("/advlist");
+    }
+
+}
